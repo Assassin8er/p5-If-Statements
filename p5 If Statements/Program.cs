@@ -24,25 +24,34 @@
                 
             
             //Medium
-            if (person1 > person2 && person3 > person2)
-                Console.WriteLine("Person 2 is the youngest.");
-            else if (person1 > person3 && person2 > person3)
-                Console.WriteLine("Person 3 is the youngest.");
-            else if (person2 > person1 && person3 > person1)
+            if (person1 < person2 && person1 < person3)
                 Console.WriteLine("Person 1 is the youngest.");
+            else if (person2 < person1 && person2 < person3)
+                Console.WriteLine("Person 2 is the youngest.");
+            else if (person3 < person1 && person3 < person2)
+                Console.WriteLine("Person 3 is the youngest.");
 
-            if (person3 > person2 && person3 > person1)
-                Console.WriteLine("Person 3 is the oldest.");
-            else if (person1 > person2 && person1 > person3)
+            if (person1 > person2 && person1 > person3)
                 Console.WriteLine("Person 1 is the oldest.");
-            else if (person2 > person3 && person2 > person1)
+            else if (person2 > person1 && person2 > person3)
                 Console.WriteLine("Person 2 is the oldest.");
+            else if (person3 > person1 && person3 > person2)
+                Console.WriteLine("Person 3 is the oldest.");
             //Harder Medium
-            if (person2 == person3 && person2 != person1 || person2 == person1 && person2 != person3)
-                Console.WriteLine("Person 2 is the same age as 1 other person");
-
             if (person1 == person2 && person3 != person1 || person1 == person3 && person1 != person2)
                 Console.WriteLine("Person 1 is the same age as 1 other person");
+            else if (person1 != person2 && person1 != person3)
+                Console.WriteLine("Nobody is the age as person 1");
+
+            if (person2 == person3 && person2 != person1 || person2 == person1 && person2 != person3)
+                Console.WriteLine("Person 2 is the same age as 1 other person");
+            else if (person2 != person1 && person2 != person3)
+                Console.WriteLine("Nobody is the age as person 2");
+
+            if (person3 == person2 && person3 != person1 || person3 == person1 && person3 != person2)
+                Console.WriteLine("Person 3 is the same age as 1 other person");
+            else if (person3 != person1 && person3 != person2)
+                Console.WriteLine("Nobody is the age as person 3");
 
             if (person1 == person2 && person2 == person3)
                 Console.WriteLine("Everyone is the same age");
