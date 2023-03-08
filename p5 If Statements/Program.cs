@@ -21,25 +21,33 @@
                 Console.WriteLine("2: WITHDRAW");
                 Console.WriteLine("3: QUIT");
                 Console.WriteLine("---------------------------------");
-                if (int.TryParse(Console.ReadLine(), out option))
+                if (int.TryParse(Console.ReadLine(), out option)&& option >= 1 && option <= 3)
                 {
                     if (option == 1)
                     {
                         Console.WriteLine("TEST 1");
+                        Thread.Sleep(1000);
+                        Console.WriteLine();
                     }
                     else if (option == 2)
                     {
                         Console.WriteLine("TEST 2");
+                        Thread.Sleep(1000);
+                        Console.WriteLine();
                     }
                     else if (option == 3)
                     {
                         Console.WriteLine("TEST 3");
+                        Thread.Sleep(1000);
+                        Console.WriteLine();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("INVALID INPUT! try again.");
-
+                    Console.WriteLine();
+                    Console.WriteLine("INVALID INPUT!!! Try putting in \"1\", \"2\", \"3\".");
+                    Thread.Sleep(1000);
+                    Console.WriteLine();
                 }
             }
         }
