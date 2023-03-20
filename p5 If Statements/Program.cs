@@ -18,7 +18,6 @@ namespace p5_If_Statements
             StartingBal = Generator.Next(100, 151);
             Balance = StartingBal;
             Interest = Bill / 10;
-            Math.Round(Bill, 2);
             Console.WriteLine("Welcome to B.O.B");
 
             while (done != true)
@@ -100,7 +99,9 @@ namespace p5_If_Statements
                         else if (choice == "no" || choice == "no " || choice == " no" || choice == "no." || choice == "n")
                         {
                             Console.WriteLine("10% interest added to bill...");
+                            Math.Round(Bill, 2);
                             Bill = Bill + Interest;
+                            Console.WriteLine($"Your new Bill is {Bill}$.");
                         }
                         else
                         {
