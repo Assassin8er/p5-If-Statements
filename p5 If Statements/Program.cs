@@ -148,7 +148,7 @@ namespace p5_If_Statements
                         Console.WriteLine("Calculating...");
                         Thread.Sleep(500);
                         // Note: A partial hour is considered a full hour.
-                        bill = (minutes / 60) * 2;
+                        bill = 4 + (minutes / 60) * 2;
                         Console.WriteLine($"{bill}$");
 
 
