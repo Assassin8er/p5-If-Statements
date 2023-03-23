@@ -7,21 +7,22 @@ namespace p5_If_Statements
     {
         static void Main(string[] args)
         {
-            Double Balance, fee, StartingBal, Deposit, WithDraw, Bill, Interest;
+            Double Balance, fee, StartingBal, Deposit, WithDraw, Bill, minutes, bill;
             int option;
             string choice;
-            bool done = false;
+            bool done1 = false;
+            bool done2 = false;
             fee = 0.75;
             Random Generator1 = new Random();
             Bill = Generator1.Next(100, 151);
             Random Generator = new Random();
             StartingBal = Generator.Next(100, 151);
             Balance = StartingBal;
-            Interest = Bill / 10;
             Console.WriteLine("Welcome to B.O.B");
 
-            while (done != true)
+            while (done1 != true)
             {
+                // Bank of Blorb program
                 Console.WriteLine($"Your Balance is:{Balance}$");
                 Console.WriteLine("What Option would you like to do?");
                 Console.WriteLine("---------------------------------");
@@ -31,7 +32,7 @@ namespace p5_If_Statements
                 Console.WriteLine("4: BALANCE UPDATE");
                 Console.WriteLine("5: QUIT");
                 Console.WriteLine("---------------------------------");
-                if (int.TryParse(Console.ReadLine(), out option) && option >= 1 && option <= 5)
+                if (int.TryParse(Console.ReadLine(), out option) && option >= 1 && option <= 5) // Makes sure theres no invalid input
                 {
                     if (option == 1)
                     {
@@ -98,10 +99,9 @@ namespace p5_If_Statements
                         }
                         else if (choice == "no" || choice == "no " || choice == " no" || choice == "no." || choice == "n")
                         {
-                            Console.WriteLine("10% interest added to bill...");
+                            Console.WriteLine("");
                             Math.Round(Bill, 2);
-                            Bill = Bill + Interest;
-                            Console.WriteLine($"Your new Bill is {Bill}$.");
+                            Console.WriteLine($"Your Bill is {Bill}$.");
                         }
                         else
                         {
@@ -116,8 +116,7 @@ namespace p5_If_Statements
                     {
                         Console.WriteLine();
                         Console.WriteLine("Have a good day!");
-                        Thread.Sleep(3000);
-                        done = true;
+                        done1 = true;
                     }
                 }
                 else
@@ -127,6 +126,38 @@ namespace p5_If_Statements
                     Thread.Sleep(1000);
                     Console.WriteLine();
                 }
+            }
+            Console.WriteLine();
+            //Parking lot program
+            Console.WriteLine("Welcome to Sam's Parking!");
+            Console.WriteLine("How many minutes have you been parked?");
+            while (!done2)
+            {
+                if (Double.TryParse(Console.ReadLine(), out minutes))
+                {
+                    if (minutes < 0)
+                        Console.WriteLine("Invalid Input");
+                    else if (minutes > 540) // More than 9 hours
+                    {
+                        Console.WriteLine("Illegal Activity Detected!");
+                        bill = 10000;
+                        Console.WriteLine($"Your Bill is {bill}$");
+                    }
+                    else //Valid Input - Calculate Charges
+                    {
+                        Console.WriteLine("Calculating...");
+                        Thread.Sleep(500);
+                        // Note: A partial hour is considered a full hour.
+                        bill = (minutes / 60) * 2;
+                        Console.WriteLine($"{bill}$");
+
+
+
+                    }
+
+                }
+                else
+                    Console.WriteLine("Invalid Input!!!");
             }
         }
     }
