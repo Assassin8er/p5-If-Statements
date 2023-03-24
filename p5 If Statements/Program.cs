@@ -7,11 +7,12 @@ namespace p5_If_Statements
     {
         static void Main(string[] args)
         {
-            Double Balance, fee, StartingBal, Deposit, WithDraw, Bill, minutes, bill;
+            Double Balance, fee, StartingBal, Deposit, WithDraw, Bill, minutes, Charge;
             int option;
             string choice;
             bool done1 = false;
             bool done2 = false;
+            bool done3 = false;
             fee = 0.75;
             Random Generator1 = new Random();
             Bill = Generator1.Next(100, 151);
@@ -19,7 +20,7 @@ namespace p5_If_Statements
             StartingBal = Generator.Next(100, 151);
             Balance = StartingBal;
             Console.WriteLine("Welcome to B.O.B");
-
+            Charge = 0;
             while (done1 != true)
             {
                 // Bank of Blorb program
@@ -128,9 +129,8 @@ namespace p5_If_Statements
                 }
             }
             Console.WriteLine();
-            //Parking lot program
-            Console.WriteLine("Welcome to Sam's Parking!");
-            Console.WriteLine("How many minutes have you been parked?");
+            Console.WriteLine("Welcome to Sam's Parking Lot!");//Parking lot program
+            Console.WriteLine("How many minutes have you been parked? Max Minute Limit is 540(9 Hours)");
             while (!done2)
             {
                 if (Double.TryParse(Console.ReadLine(), out minutes))
@@ -139,25 +139,117 @@ namespace p5_If_Statements
                         Console.WriteLine("Invalid Input");
                     else if (minutes > 540) // More than 9 hours
                     {
-                        Console.WriteLine("Illegal Activity Detected!");
-                        bill = 10000;
-                        Console.WriteLine($"Your Bill is {bill}$");
+                        Console.WriteLine("Illegal Input!");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("Illegal Input!");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("Illegal Input!");
+                        Thread.Sleep(800);
+                        Charge = Charge + 10000;
+                        Console.WriteLine($"Your bill is {Charge}$");
+                        Thread.Sleep(700);
+                        Console.WriteLine("You Are Under Arrest!!!");
+                        Thread.Sleep(500);
+                        done2 = true;
                     }
                     else //Valid Input - Calculate Charges
                     {
                         Console.WriteLine("Calculating...");
-                        Thread.Sleep(500);
-                        // Note: A partial hour is considered a full hour.
-                        bill = 4 + (minutes / 60) * 2;
-                        Console.WriteLine($"{bill}$");
-
-
+                        Thread.Sleep(850);
+                        if (minutes <= 60)
+                        {
+                            Charge = Charge + 4;
+                            Console.WriteLine("You are being charged for the hour.");
+                            Console.WriteLine($"Your bill is {Charge}$");
+                            done2 = true;
+                        }
+                        else if (minutes <= 120 && minutes > 60)
+                        {
+                            Charge = Charge + 6;
+                            Console.WriteLine("You are being charged for 2 hours.");
+                            Console.WriteLine($"Your bill is {Charge}$");
+                            done2 = true;
+                        }
+                        else if (minutes <= 180 && minutes > 120)
+                        {
+                            Charge = Charge + 8;
+                            Console.WriteLine("You are being charged for 3 hours.");
+                            Console.WriteLine($"Your bill is {Charge}$");
+                            done2 = true;
+                        }
+                        else if (minutes <= 240 && minutes > 180)
+                        {
+                            Charge = Charge + 10;
+                            Console.WriteLine("You are being charged for 4 hours.");
+                            Console.WriteLine($"Your bill is {Charge}$");
+                            done2 = true;
+                        }
+                        else if (minutes <= 300 && minutes > 240)
+                        {
+                            Charge = Charge + 12;
+                            Console.WriteLine("You are being charged for 5 hours.");
+                            Console.WriteLine($"Your bill is {Charge}$");
+                            done2 = true;
+                        }
+                        else if (minutes <= 360 && minutes > 300)
+                        {
+                            Charge = Charge + 14;
+                            Console.WriteLine("You are being charged for 6 hours.");
+                            Console.WriteLine($"Your bill is {Charge}$");
+                            done2 = true;
+                        }
+                        else if (minutes <= 420 && minutes > 360)
+                        {
+                            Charge = Charge + 16;
+                            Console.WriteLine("You are being charged for 7 hours.");
+                            Console.WriteLine($"Your bill is {Charge}$");
+                            done2 = true;
+                        }
+                        else if (minutes <= 480 && minutes > 420)
+                        {
+                            Charge = Charge + 18;
+                            Console.WriteLine("You are being charged for 8 hours.");
+                            Console.WriteLine($"Your bill is {Charge}$");
+                            done2 = true;
+                        }
+                        else if (minutes <= 540 && minutes > 480)
+                        {
+                            Charge = Charge + 20;
+                            Console.WriteLine("You are being charged for 9 hours.");
+                            Console.WriteLine($"Your bill is {Charge}$");
+                            done2 = true;
+                        }
 
                     }
 
                 }
                 else
                     Console.WriteLine("Invalid Input!!!");
+            }
+            while (!done3)//Hurricane Program
+            {
+                Console.WriteLine("What hurricane catagory from 1 to 5 do you want to know about?");
+                if (int.TryParse(Console.ReadLine(), out option) && option >= 1 && option <= 5)
+                {
+                    switch (option)
+                    {
+                        case 1: Console.WriteLine("Catagory 1:74-95mph or 64-82kt or 119-153km/hr");
+                            break;
+                        case 2: Console.WriteLine("Catagory 2:96-110mph or 83-95kt or 154-177km/hr");
+                            break;
+                        case 3: Console.WriteLine("Catagory 3:111-130mph or 96-113kt or 178-209km/hr");
+                            break;
+                        case 4: Console.WriteLine("Catagory 4:131-155mph or 114-135kt or 210-249km/hr");
+                            break;
+                        case 5: Console.WriteLine("Catagory 5:Greater than 155mph or 135kt or 249km/hr");
+                            break;
+                    }
+                    done3 = true;
+                }
+                else
+                {
+                    Console.WriteLine("INVALID INPUT!");
+                }
             }
         }
     }
