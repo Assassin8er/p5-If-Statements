@@ -234,21 +234,24 @@ namespace p5_If_Statements
                     switch (option)
                     {
                         case 1: Console.WriteLine("Catagory 1:74-95mph or 64-82kt or 119-153km/hr");
+                            done3 = true;
                             break;
                         case 2: Console.WriteLine("Catagory 2:96-110mph or 83-95kt or 154-177km/hr");
+                            done3 = true;
                             break;
                         case 3: Console.WriteLine("Catagory 3:111-130mph or 96-113kt or 178-209km/hr");
+                            done3 = true;
                             break;
                         case 4: Console.WriteLine("Catagory 4:131-155mph or 114-135kt or 210-249km/hr");
+                            done3 = true;
                             break;
                         case 5: Console.WriteLine("Catagory 5:Greater than 155mph or 135kt or 249km/hr");
+                            done3 = true;
+                            break;
+                        default:
+                            Console.WriteLine("INVALID INPUT!");
                             break;
                     }
-                    done3 = true;
-                }
-                else
-                {
-                    Console.WriteLine("INVALID INPUT!");
                 }
             }
         }
