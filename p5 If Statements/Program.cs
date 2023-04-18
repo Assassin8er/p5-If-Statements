@@ -228,7 +228,7 @@ namespace p5_If_Statements
             }
             while (!done3)//Hurricane Program
             {
-                Console.WriteLine("What hurricane catagory from 1 to 5 do you want to know about?");
+                Console.Write("What hurricane catagory from 1 to 5 do you want to know about?: ");
                 if (int.TryParse(Console.ReadLine(), out option) && option >= 1 && option <= 5)
                 {
                     switch (option)
